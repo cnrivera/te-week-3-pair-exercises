@@ -1,4 +1,5 @@
 ﻿using System;
+using BankTellerExercise.Classes;
 
 namespace BankTellerExercise
 {
@@ -6,7 +7,36 @@ namespace BankTellerExercise
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            BankAccount checkingAccount = new CheckingAccount();
+            BankAccount savingsAccount = new SavingsAccount();
+
+            decimal amountToDeposit = 100.00M;
+            decimal newBalance = checkingAccount.Deposit(amountToDeposit);
+
+            decimal amountToTransfer = 50.00M;
+            checkingAccount.Transfer(savingsAccount, amountToTransfer);
+
+            amountToTransfer = 100.00M;
+            checkingAccount.Transfer(savingsAccount, amountToTransfer);
+
+            amountToTransfer = 100.00M;
+            checkingAccount.Transfer(savingsAccount, amountToTransfer);
+
+
+
+            Console.WriteLine(checkingAccount.Balance);
+            Console.WriteLine(savingsAccount.Balance);
+
+            // checkingAccount = new CheckingAccount();
+            // savingsAccount = new SavingsAccount();
+
+            //BankCustomer jayGatsby = new BankCustomer();
+            //jayGatsby.AddAccount(checkingAccount);
+            //jayGatsby.AddAccount(savingsAccount);
+
+
+            //Console.WriteLine($"Jay Gatsby has {jayGatsby.Accounts.Length} accounts.");
         }
     }
 }

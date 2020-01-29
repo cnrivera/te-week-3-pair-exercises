@@ -38,8 +38,15 @@ namespace BankTellerExercise
             jayGatsby.AddAccount(checkingAccount);
             jayGatsby.AddAccount(savingsAccount);
 
+            amountToDeposit = 50000.00M;
+            newBalance = checkingAccount.Deposit(amountToDeposit);
+            Console.WriteLine(checkingAccount.Balance);
+
+
 
             Console.WriteLine($"Jay Gatsby has {jayGatsby.Accounts.Length} accounts.");
+
+            Console.WriteLine(jayGatsby.IsVIP);
         }
     }
 }

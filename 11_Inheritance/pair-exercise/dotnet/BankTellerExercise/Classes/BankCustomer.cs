@@ -23,6 +23,27 @@ namespace BankTellerExercise.Classes
             }
 
         }
+        public bool IsVIP
+        {
+            get
+            {
+                decimal sum = 0;
+                foreach (BankAccount account in Accounts)
+                {
+                    sum += account.Balance;
+                    
+                }
+
+                if (sum >= 25000)
+                {
+                    return true;
+                }
+                return false;
+                    
+                
+
+            }
+        }
 
         public BankCustomer()
         {

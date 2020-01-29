@@ -23,7 +23,7 @@ namespace EmployeePayroll
             double totalPay = 0;
 
 
-            Console.WriteLine("Employee \t\t\tHours Worked \t\t\tPay");
+            Console.WriteLine("{0, -20} {1, 5} {2, 10}", "Employee", "Hours Worked", "Pay");
             Console.WriteLine("=====================================================================");
 
             foreach (IWorker worker in payrollList)
@@ -31,11 +31,12 @@ namespace EmployeePayroll
                 hoursWorked = rand.Next(110);
                 totalHours += hoursWorked;
                 totalPay += worker.CalculateWeeklyPay(hoursWorked);
-                Console.WriteLine($"{worker.LastName}, {worker.FirstName} \t\t\t{hoursWorked} \t\t\t${Math.Round(worker.CalculateWeeklyPay(hoursWorked))}");
+                Console.WriteLine("{0, -20} {1, 6} {2, 18:C}", worker.LastName + ", " + worker.FirstName, hoursWorked, worker.CalculateWeeklyPay(hoursWorked));
                     
             }
+            Console.WriteLine("");
             Console.WriteLine($"Total Hours: {totalHours}");
-            Console.WriteLine($"Total Pay: ${Math.Round(totalPay)}");
+            Console.WriteLine("Total Pay: "+"{0:C}", totalPay);
 
 
 
